@@ -1,11 +1,12 @@
-<h2>Shared File Library</h2>
-
-<input type="file" (change)="uploadFile($event)"/>
-
-<ul>
+<div class="lib-container">
+  <h2 class="lib-title">Shared File Library</h2>
+  <div class="lib-button"></div>
+  <input type="file" (change)="uploadFile($event)" />
+  <ul>
     <li *ngFor="let file of files">
-        {{ file.name }}
-        <button (click)="downloadFile(file)">Download</button>
-        <button (click)="deleteFile(file)">Delete</button>
+      {{ file.name }}
+      <button (click)="downloadFile(file)">Download</button>
+      <button (click)="deleteFile(file)">Delete</button>
     </li>
-</ul>
+  </ul>
+</div>
