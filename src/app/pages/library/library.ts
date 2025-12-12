@@ -3,9 +3,10 @@ import { FileService } from '../../services/file.service';
 
 @Component({
   selector: 'app-library',
+  standalone: true,
   imports: [],
   templateUrl: './library.html',
-  styleUrl: './library.scss',
+  styleUrls: ['./library.css']
 })
 export class Library implements OnInit {
   
