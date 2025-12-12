@@ -21,10 +21,11 @@
 }
 
 
-.lib-container .lib-title {
+.lib-title {
+    margin: 0;
     font-size: 100px;
     font-weight: bold;
-
+    text-align: center;
     padding: 5px 20px 5px 20px;
     border-radius: 8px;
     background-color: #A1BC98;
