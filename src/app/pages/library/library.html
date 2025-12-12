@@ -1,12 +1,20 @@
 <div class="lib-container">
-  <h2 class="lib-title">Shared File Library</h2>
-  <div class="lib-button"></div>
-  <input type="file" (change)="uploadFile($event)" />
-  <ul>
-    <li *ngFor="let file of files">
-      {{ file.name }}
-      <button (click)="downloadFile(file)">Download</button>
-      <button (click)="deleteFile(file)">Delete</button>
+  <h2 class="lib-title">Umi Exchange</h2>
+
+  <div class="lib-actions">
+    <input class="lib-upload" type="file" (change)="uploadFile($event)" />
+
+    <!-- add more buttons here later if needed -->
+  </div>
+
+  <ul class="lib-list">
+    <li class="lib-item" *ngFor="let file of files">
+      <span class="lib-filename">{{ file.name }}</span>
+
+      <div class="lib-item-actions">
+        <button (click)="downloadFile(file)">Download</button>
+        <button (click)="deleteFile(file)">Delete</button>
+      </div>
     </li>
   </ul>
 </div>

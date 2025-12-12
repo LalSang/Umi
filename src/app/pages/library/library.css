@@ -1,4 +1,4 @@
-.lib-container {
+/* .lib-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,12 +7,27 @@
     padding: 10px;
     margin: 40px 200px 0 200px;
     height: 600px;
+} */
+
+.lib-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    padding: 24px;
+    margin: 40px 200px 0 200px;
+    min-height: 600px;
 }
+
 
 .lib-container .lib-title {
     font-size: 100px;
     font-weight: bold;
-    
+
+    padding: 5px 20px 5px 20px;
+    border-radius: 8px;
+    background-color: #A1BC98;
 }
 
 .lib-button {
