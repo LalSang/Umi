@@ -11,29 +11,62 @@ import { FileService } from '../../services/file.service';
 export class Library implements OnInit {
   
   files: any[] = [];
+  isDragging = false;
 
   constructor(private fileService: FileService) {
-
   }
 
   ngOnInit() {
       this.loadFiles();
   }
 
+  //Load files
+  
   loadFiles() {
     this.fileService.getFiles().subscribe(data => {
       this.files = data;
     })
   }
 
-  uploadFile(event: any) {
-    const file = event.target.files[0];
-    if (!file) return;
 
-    this.fileService.upload(file).subscribe(()=> {
-      this.loadFiles();
+  uploadFiles(fileList: FileList) {
+    Array.from(fileList).forEach(file => {
+      this.fileService.upload(file).subscribe(() => {
+        this.loadFiles();
+      })
     })
   }
+
+  //Click / Input upload
+  onFileSelect(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (!input.files) return;
+
+    this.uploadFiles(input.files);
+    input.value = '';
+  }
+
+  //drag and drop handlers
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+    this.isDragging = true;
+  }
+
+  onDragLeave(event: DragEvent) {
+    event.preventDefault();
+    this.isDragging = false;
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    this.isDragging = false;
+
+    if (event.dataTransfer?.files) {
+      this.uploadFiles(event.dataTransfer.files);
+    }
+  }
+
+  
 
   downloadFile(file: any) {
     window.open(`http://localhost:3000/download/${file.name}`, "_blank");
