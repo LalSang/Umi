@@ -91,6 +91,15 @@
     font-size: 20px;
 }
 
+.lib-para-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
 .lib-action-text .choose-text {
     font-size: 15px;
 }
@@ -99,5 +108,13 @@
     height: 50px;
     width: 50px;
 }
+
+.lib-para-text .minimum-size-text{
+    font-size: 12px;
+    color: grey;
+}
+
+
+
 
 
