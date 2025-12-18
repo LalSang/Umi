@@ -1,0 +1,103 @@
+.lib-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  padding: 24px;
+  margin: 40px 200px 0 200px;
+  min-height: 600px;
+}
+
+.lib-title {
+  margin: 0;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #a1bc98;
+  padding: 5px 20px;
+  border-radius: 8px;
+}
+
+/* DROP ZONE */
+.lib-actions {
+    width: 600px;
+    height: 180px;
+
+    border: 3px dashed #333;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.lib-actions p {
+  font-size: 1.1rem;
+  color: #333;
+  pointer-events: none;
+}
+
+/* Drag-over visual feedback */
+.lib-actions.drag-over {
+    background-color: #e6f4ea;
+    border-color: #2f855a;
+}
+
+.file {
+    display: none;
+}
+
+.lib-list {
+    width: 100%;
+    max-width: 900px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lib-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+}
+
+.lib-item-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.lib-action-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lib-action-text .drag-text{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.lib-action-text .choose-text {
+    font-size: 15px;
+}
+
+.drag-image {
+    height: 50px;
+    width: 50px;
+}
+
+

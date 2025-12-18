@@ -8,13 +8,22 @@
     (dragover)="onDragOver($event)"
     (dragleave)="onDragLeave($event)"
     (drop)="onDrop($event)"
+    (click)="openFilePicker()"
   >
-    <p>Drag and drop files here or click to upload</p>
+    <div class="lib-action-text">
+      <img
+        class="drag-image"
+        src="assets/images/savefile.png"
+        alt="Folder with drag file to indicate drag and drop"
+      />
+      <p class="drag-text">Drag and Drop</p>
+      <p class="choose-text">or choose a file</p>
+    </div>
 
-    <input type="file" class="file" multiple (change)="onFileSelect($event)" />
+    <!-- #fileInput is template reference variable -->
+    <input #fileInput type="file" class="file" multiple (change)="onFileSelect($event)" />
     <!-- add more buttons here later if needed -->
   </div>
-
   <ul class="lib-list">
     <li class="lib-item" *ngFor="let file of files">
       <span class="lib-filename">{{ file.name }}</span>

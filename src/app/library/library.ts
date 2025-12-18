@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FileService } from '../../services/file.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FileService } from '../services/file.service';
 
 @Component({
   selector: 'app-library',
@@ -12,6 +12,14 @@ export class Library implements OnInit {
   
   files: any[] = [];
   isDragging = false;
+
+
+  //@viewchild finds element in this component's template, 
+  //Elementref is the safe wrapper angular gives us 
+  //to interact with that element
+  // ! = says I promise this property will be assigned a value before
+  // it's used 
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   constructor(private fileService: FileService) {
   }
@@ -66,7 +74,13 @@ export class Library implements OnInit {
     }
   }
 
-  
+  openFilePicker() {
+    // document.querySelector('input')?.click();
+    this.fileInput.nativeElement.click();
+  }
+
+
+
 
   downloadFile(file: any) {
     window.open(`http://localhost:3000/download/${file.name}`, "_blank");

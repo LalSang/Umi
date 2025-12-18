@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Library } from './pages/library/library';
+import { Library } from './library/library';
 
 export const routes: Routes = [
     { path: '', component: Library}
