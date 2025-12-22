@@ -3,21 +3,32 @@
     display: block;
 }
 
-.nav-container {
+/* Full-width nav bar */
+.nav {
+    background-color: #607BBF;
+    height: 64px;
+    font-family: 'Merriweather',sans-serif;
+    /* height: 64px; */
+}
+
+/* Centered inner container */
+.nav-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #607B8F;
 
-    height: 64px;
-    padding: 0px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
 }
 
 .nav-title h1 {
     margin: 0px;
-    font-size: 1.5rem;
+    font-size: 2 rem;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 
 .nav-list {
@@ -28,4 +39,5 @@
 
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }

@@ -1,40 +1,42 @@
-<div class="lib-container">
-  <h2 class="lib-title">Bridge</h2>
-  <p class="lib-subtitle">Drag & drop files to share instantly</p>
+<div class="lib-body">
+  <div class="lib-container">
+    <h2 class="lib-title">Bridge</h2>
+    <p class="lib-subtitle">Drag & drop files to share instantly</p>
 
-  <div
-    class="lib-actions"
-    [class.drag-over]="isDragging"
-    (dragover)="onDragOver($event)"
-    (dragleave)="onDragLeave($event)"
-    (drop)="onDrop($event)"
-    (click)="openFilePicker()"
-  >
-    <div class="lib-action-text">
-      <img
-        class="drag-image"
-        src="assets/images/savefile.png"
-        alt="Folder with drag file to indicate drag and drop"
-      />
-      <p class="drag-text">Drag and Drop</p>
-      <div class="lib-para-text">
-        <p class="choose-text">or choose a file</p>
-        <p class="minimum-size-text">Minimum file size 500MB. &middot; See more requirement</p>
+    <div
+      class="lib-actions"
+      [class.drag-over]="isDragging"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      (click)="openFilePicker()"
+    >
+      <div class="lib-action-text">
+        <img
+          class="drag-image"
+          src="assets/images/savefile.png"
+          alt="Folder with drag file to indicate drag and drop"
+        />
+        <p class="drag-text">Drag and Drop</p>
+        <div class="lib-para-text">
+          <p class="choose-text">or choose a file</p>
+          <p class="minimum-size-text">Minimum file size 500MB. &middot; See more requirement</p>
+        </div>
       </div>
+
+      <!-- #fileInput is template reference variable -->
+      <input #fileInput type="file" class="file" multiple (change)="onFileSelect($event)" />
+      <!-- add more buttons here later if needed -->
     </div>
+    <ul class="lib-list">
+      <li class="lib-item" *ngFor="let file of files">
+        <span class="lib-filename">{{ file.name }}</span>
 
-    <!-- #fileInput is template reference variable -->
-    <input #fileInput type="file" class="file" multiple (change)="onFileSelect($event)" />
-    <!-- add more buttons here later if needed -->
+        <div class="lib-item-actions">
+          <button (click)="downloadFile(file)">Download</button>
+          <button (click)="deleteFile(file)">Delete</button>
+        </div>
+      </li>
+    </ul>
   </div>
-  <ul class="lib-list">
-    <li class="lib-item" *ngFor="let file of files">
-      <span class="lib-filename">{{ file.name }}</span>
-
-      <div class="lib-item-actions">
-        <button (click)="downloadFile(file)">Download</button>
-        <button (click)="deleteFile(file)">Delete</button>
-      </div>
-    </li>
-  </ul>
 </div>
