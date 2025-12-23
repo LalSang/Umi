@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FileService } from '../services/file.service';
+import { Table } from '../table/table';
 
 @Component({
   selector: 'app-library',
   standalone: true,
-  imports: [],
+  imports: [Table],
   templateUrl: './library.html',
   styleUrls: ['./library.css']
 })
