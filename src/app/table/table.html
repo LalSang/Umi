@@ -1,12 +1,23 @@
 <div class="table-container">
   <div class="table-inner">
     <table class="file-table">
-      <tr>
-        <th>File Name</th>
-        <th>File Size</th>
-        <th>Description</th>
-        <th>Date</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>File Size</th>
+          <th>Description</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let file of files">
+          <td>{{ file.name }}</td>
+          <td>{{ formatSize(file.size) }}</td>
+          <td>{{ file.description || '-' }}</td>
+          <td>{{ file.date || (file.createdAt | date : 'short') }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

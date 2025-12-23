@@ -10,5 +10,5 @@ import { Nav } from './web/nav/nav';
   styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('yumi');
+  protected readonly title = signal('Bridge');
 }
